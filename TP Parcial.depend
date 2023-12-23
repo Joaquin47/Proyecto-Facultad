@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1698342837 source:c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<ctime>
+	"FuncionesGlobales.h"
+	"clsFecha.h"
+	"clsDeporte.h"
+	"clsJugador.h"
+	"clsEquipo.h"
+	"clsTipodeDeporte.h"
+	"subMenuJugadores.h"
+	"subMenuDeportes.h"
+	"subMenuConfiguracion.h"
+	"subMenuEquipos.h"
+	"subMenuTiposdeDeporte.h"
+	"reportes.h"
+
+1696265545 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\funcionesglobales.h
+	"clsFecha.h"
+
+1696264934 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\clsfecha.h
+
+1699526372 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\clsjugador.h
+
+1699526872 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\submenujugadores.h
+
+1698342434 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\clsdeporte.h
+
+1698342742 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\submenudeportes.h
+
+1700142702 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\reportes.h
+
+1698362830 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\submenuconfiguracion.h
+
+1698185343 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\segundo.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"FuncionesGlobales.h"
+	"clsFecha.h"
+	"clsDeporte.h"
+	"clsJugador.h"
+	"subMenuJugadores.h"
+	"subMenuDeportes.h"
+	"subMenuConfiguracion.h"
+	"reportes.h"
+
+1699485611 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\clsequipo.h
+
+1698342918 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\submenuequipos.h
+
+1698342215 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\clstipodedeporte.h
+
+1698342918 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\submenutiposdedeporte.h
+
