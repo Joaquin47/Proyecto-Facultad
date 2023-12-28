@@ -6,34 +6,79 @@ void Ejercicio2();
 void Ejercicio3();
 
 void reportes() {
-    int opc;
-    while(true){
-        system("cls");
-        cout<<"MENU REPORTES"<<endl;
-        cout<<"-----------------------------"<<endl;
-        cout<<"1) GENERAR ARCHIVO CON LOS EQUIPOS CON TODOS SUS INTEGRANTES DOCENTES"<<endl;
-        cout<<"2) INFORMAR EL/LOS CLAUSTRO/S CON MAS DE 15 JUGADORES"<<endl;
-        cout<<"3) PUNTO 2 CON VECTOR DINAMICO"<<endl;
-        cout<<"-----------------------------"<<endl;
-        cout<<"0) VOLVER AL MENU PRINCIPAL"<<endl;
-        cout<<"OPCION: "<<endl;
-        cin>>opc;
-        system("cls");
-        switch(opc){
-            case 1: Ejercicio1();
+        rlutil::hidecursor();
+        rlutil::setBackgroundColor(rlutil::COLOR::BLACK);
+        rlutil::cls();
+        int y=0;
+     while(true){
+        int i;
+        Punto obj(26,8, cMAGENTA_CLARO);
+        for(i=26;i<84;i++){
+            obj.Mostrar();
+            obj.setX(i);
+            }
+        for(i=8;i<15;i++){
+            obj.Mostrar();
+            obj.setY(i);
+        }
+        for(i=83;i>25;i--){
+            obj.setX(i);
+            obj.Mostrar();
+        }
+        for(i=14;i>7;i--){
+            obj.Mostrar();
+            obj.setY(i);
+        }
+
+        rlutil::setColor(rlutil::COLOR::LIGHTCYAN);
+        showItem("                 --MENU REPORTES-                 ", 30, 9, false);
+        showItem("    EQUIPOS CON TODOS SUS INTEGRANTES DOCENTES    ", 30, 10, y==0);
+        showItem("INFORMAR EL/LOS CLAUSTRO/S CON MAS DE 15 JUGADORES", 30, 11, y==1);
+        showItem("             PUNTO 2 CON VECTOR DINAMICO          ", 30, 12, y==2);
+        showItem("              VOLVER AL MENU PRINCIPAL            ", 30, 13, y==3);
+
+        switch(rlutil::getkey()){
+            case 14: //UP
+                rlutil::locate(28,10+y);
+                cout<<" "<<endl;
+                y--;
+                if(y<0){
+                    y=3;
+                }
                 break;
-            case 2: Ejercicio2();
+            case 15: //DOWN
+                rlutil::locate(28,10+y);
+                cout<<" "<<endl;
+                y++;
+                if(y>3){
+                    y=0;
+                }
                 break;
-            case 3: Ejercicio3();
+            case 1: //ENTER
+                switch(y){
+                case 0: system("cls");
+                        Ejercicio1();
+                        pauseCls();
+                    break;
+                case 1: system("cls");
+                        Ejercicio2();
+                        pauseCls();
+                    break;
+                case 2: system("cls");
+                        Ejercicio3();
+                        pauseCls();
+                    break;
+                case 3: system("cls");
+                        return ;
+                    break;
+                }
                 break;
-            case 0: return;
-                break;
-            default: cout<<"OPCION INCORRECTA"<<endl;
+            default:
                 break;
         }
-        system("pause");
-    }
 }
+}
+
 class Punto1{
  private:
     int ID;

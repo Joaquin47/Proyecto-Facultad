@@ -8,45 +8,92 @@ bool modificarEquipoNombre();
 bool eliminarEquipo();
 
 void subMenuEquipos() {
-    int opc;
-    while(true){
-        system("cls");
-        cout<<"MENU EQUIPOS"<<endl;
-        cout<<"-----------------------------"<<endl;
-        cout<<"1) AGREGAR EQUIPO"<<endl;
-        cout<<"2) LISTAR EQUIPO POR ID"<<endl;
-        cout<<"3) LISTAR TODO"<<endl;
-        cout<<"4) MODIFICAR NOMBRE"<<endl;
-        cout<<"5) ELIMINAR REGISTRO"<<endl;
-        cout<<"-----------------------------"<<endl;
-        cout<<"0) VOLVER AL MENU PRINCIPAL"<<endl;
-        cout<<"OPCION: "<<endl;
-        cin>>opc;
-        system("cls");
-        switch(opc){
-            case 1: if(agregarRegistroEquipo()){
-            cout<<"REGISTRO AGREGADO"<<endl;
-            } else {cout<<"NO SE HA PODIDO AGREGAR EL REGISTRO"<<endl;
-            };
-                break;
-            case 2: if(!listarEquipoSegunID()){cout<<"NO HAY REGISTRO CON ESE ID"<<endl;}
-                break;
-            case 3: listarEquipos();
-                break;
-            case 4: if(modificarEquipoNombre()){cout<<"SE HA MODIFICADO EL NOMBRE"<<endl;}else{cout<<"NO SE HA PODIDO MODIFICAR"<<endl;};
-                break;
-            case 5: eliminarEquipo();
-                break;
-            case 0: return ;
-                break;
-            default: cout<<"OPCION INCORRECTA"<<endl;
-                break;
+        rlutil::hidecursor();
+        rlutil::setBackgroundColor(rlutil::COLOR::BLACK);
+        rlutil::cls();
+        int y=0;
+     while(true){
+        int i;
+        Punto obj(26,8, cMAGENTA_CLARO);
+        for(i=26;i<61;i++){
+            obj.Mostrar();
+            obj.setX(i);
+            }
+        for(i=8;i<17;i++){
+            obj.Mostrar();
+            obj.setY(i);
         }
-        system("pause");
+        for(i=60;i>25;i--){
+            obj.setX(i);
+            obj.Mostrar();
+        }
+        for(i=16;i>7;i--){
+            obj.Mostrar();
+            obj.setY(i);
+        }
+
+        rlutil::setColor(rlutil::COLOR::LIGHTCYAN);
+        showItem("      --MENU EQUIPOS--     ", 30, 9, false);
+        showItem("       AGREGAR EQUIPO      ", 30, 10, y==0);
+        showItem("    LISTAR EQUIPO POR ID   ", 30, 11, y==1);
+        showItem("  LISTAR TODOS LOS EQUIPOS ", 30, 12, y==2);
+        showItem("     MODIFICAR NOMBRE      ", 30, 13, y==3);
+        showItem("     ELIMINAR REGISTRO     ", 30, 14, y==4);
+        showItem("  VOLVER AL MENU PRINCIPAL ", 30, 15, y==5);
+
+
+        switch(rlutil::getkey()){
+            case 14: //UP
+                rlutil::locate(28,10+y);
+                cout<<" "<<endl;
+                y--;
+                if(y<0){
+                    y=5;
+                }
+                break;
+            case 15: //DOWN
+                rlutil::locate(28,10+y);
+                cout<<" "<<endl;
+                y++;
+                if(y>5){
+                    y=0;
+                }
+                break;
+            case 1: //ENTER
+                switch(y){
+                case 0: system("cls");
+                        if(agregarRegistroEquipo()){
+                    cout<<"REGISTRO AGREGADO"<<endl;
+                    } else {cout<<"NO SE HA PODIDO AGREGAR EL REGISTRO"<<endl;
+                    } pauseCls();
+                    break;
+                case 1: system("cls");
+                        if(!listarEquipoSegunID()){cout<<"NO HAY REGISTRO CON ESE ID"<<endl;}
+                        pauseCls();
+                    break;
+                case 2: system("cls");
+                        listarEquipos();
+                        pauseCls();
+                    break;
+                case 3: system("cls");
+                        if(modificarEquipoNombre()){cout<<"SE HA MODIFICADO EL NOMBRE"<<endl;}
+                        else{
+                        cout<<"NO SE HA PODIDO MODIFICAR"<<endl;
+                        } pauseCls();
+                    break;
+                case 4: system("cls");
+                        eliminarEquipo();
+                        pauseCls();
+                    break;
+                case 5: system("cls");
+                        return ;
+                    break;
+                }
+                break;
+            default:
+                break;
+            }
     }
-    cout<<endl;
-    system("pause");
-    return ;
 }
 
 bool agregarRegistroEquipo(){

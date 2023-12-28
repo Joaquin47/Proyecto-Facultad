@@ -8,46 +8,92 @@ bool modificarAnio();
 bool bajaLogicaDeporte();
 
 void subMenuDeportes(){
-   while(true){
-        int opc;
-        system("cls");
-        cout<<"MENU DEPORTES"<<endl;
-        cout<<"-----------------------------"<<endl;
-        cout<<"1) AGREGAR DEPORTE"<<endl;
-        cout<<"2) LISTAR DEPORTE POR ID"<<endl;
-        cout<<"3) LISTAR TODOS LOS DEPORTES"<<endl;
-        cout<<"4) MODIFICAR ANIO DE ORIGEN"<<endl;
-        cout<<"5) ELIMINAR REGISTRO DE DEPORTE"<<endl;
-        cout<<"-----------------------------"<<endl;
-        cout<<"0) VOLVER AL MENU PRINCIPAL"<<endl;
-        cout<<"OPCION: "<<endl;
-        cin>>opc;
-        system("cls");
-        switch(opc){
-            case 1: if(agregarRegistroDeporte()){
-            cout<<"REGISTRO AGREGADO"<<endl;
-            } else {cout<<"NO SE HA PODIDO AGREGAR EL REGISTRO"<<endl;
-            };
-                break;
-            case 2: if(!listarDeporteSegunID()){cout<<"NO HAY REGISTRO CON ESE ID"<<endl;}
-                break;
-            case 3: listarDeportes();
-                break;
-            case 4: if(modificarAnio()){
-            cout<<"ARCHIVO MODIFICADO"<<endl;
-            } else {cout<<"NO SE HA PODIDO MODIFICAR EL REGISTRO"<<endl;
+        rlutil::hidecursor();
+        rlutil::setBackgroundColor(rlutil::COLOR::BLACK);
+        rlutil::cls();
+        int y=0;
+     while(true){
+        int i;
+        Punto obj(26,8, cMAGENTA_CLARO);
+        for(i=26;i<62;i++){
+            obj.Mostrar();
+            obj.setX(i);
             }
-                break;
-            case 5: if(bajaLogicaDeporte()){cout<<"SE HA DADO DE BAJA AL DEPORTE"<<endl;
-            } else {cout<<"NO SE HA DADO DE BAJA AL DEPORTE"<<endl;
-            }
-                break;
-            case 0: return ;
-                break;
-            default: cout<<"OPCION INCORRECTA"<<endl;
-                break;
+        for(i=8;i<17;i++){
+            obj.Mostrar();
+            obj.setY(i);
         }
-        system("pause");
+        for(i=61;i>25;i--){
+            obj.setX(i);
+            obj.Mostrar();
+        }
+        for(i=16;i>7;i--){
+            obj.Mostrar();
+            obj.setY(i);
+        }
+
+        rlutil::setColor(rlutil::COLOR::LIGHTCYAN);
+        showItem("      --MENU DEPORTES--     ", 30, 9, false);
+        showItem("       AGREGAR DEPORTE      ", 30, 10, y==0);
+        showItem("    LISTAR DEPORTE POR ID   ", 30, 11, y==1);
+        showItem("  LISTAR TODOS LOS DEPORTES ", 30, 12, y==2);
+        showItem("  MODIFICAR ANIO DE ORIGEN  ", 30, 13, y==3);
+        showItem("ELIMINAR REGISTRO DE DEPORTE", 30, 14, y==4);
+        showItem("  VOLVER AL MENU PRINCIPAL  ", 30, 15, y==5);
+
+
+        switch(rlutil::getkey()){
+            case 14: //UP
+                rlutil::locate(28,10+y);
+                cout<<" "<<endl;
+                y--;
+                if(y<0){
+                    y=5;
+                }
+                break;
+            case 15: //DOWN
+                rlutil::locate(28,10+y);
+                cout<<" "<<endl;
+                y++;
+                if(y>5){
+                    y=0;
+                }
+                break;
+            case 1: //ENTER
+                switch(y){
+                case 0: system("cls");
+                            if(agregarRegistroDeporte()){
+                    cout<<"REGISTRO AGREGADO"<<endl;
+                    } else {cout<<"NO SE HA PODIDO AGREGAR EL REGISTRO"<<endl;
+                    } pauseCls();
+                    break;
+                case 1: system("cls");
+                        if(!listarDeporteSegunID()){cout<<"NO HAY REGISTRO CON ESE ID"<<endl;}
+                        pauseCls();
+                    break;
+                case 2: system("cls");
+                        listarDeportes();
+                        pauseCls();
+                    break;
+                case 3: system("cls");
+                        if(modificarAnio()){
+                    cout<<"ARCHIVO MODIFICADO"<<endl;
+                    } else {cout<<"NO SE HA PODIDO MODIFICAR EL REGISTRO"<<endl;
+                    } pauseCls();
+                    break;
+                case 4: system("cls");
+                        if(bajaLogicaDeporte()){cout<<"SE HA DADO DE BAJA AL DEPORTE"<<endl;
+                    } else {cout<<"NO SE HA DADO DE BAJA AL DEPORTE"<<endl;
+                    } pauseCls();
+                    break;
+                case 5: system("cls");
+                        return ;
+                    break;
+                }
+                break;
+            default:
+                break;
+            }
     }
 }
 

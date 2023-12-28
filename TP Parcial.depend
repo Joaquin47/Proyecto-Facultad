@@ -55,3 +55,70 @@
 
 1698342918 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\tp parcial\tp parcial\submenutiposdedeporte.h
 
+1703791923 source:c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<ctime>
+	"rlutil.h"
+	"clasePunto.h"
+	"FuncionesGlobales.h"
+	"clsFecha.h"
+	"clsDeporte.h"
+	"clsJugador.h"
+	"clsEquipo.h"
+	"clsTipodeDeporte.h"
+	"subMenuJugadores.h"
+	"subMenuDeportes.h"
+	"subMenuConfiguracion.h"
+	"subMenuEquipos.h"
+	"subMenuTiposdeDeporte.h"
+	"reportes.h"
+
+1703791923 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\funcionesglobales.h
+	"clsFecha.h"
+
+1696264934 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\clsfecha.h
+
+1698342434 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\clsdeporte.h
+
+1699526372 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\clsjugador.h
+
+1699485611 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\clsequipo.h
+
+1698342215 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\clstipodedeporte.h
+
+1703791923 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\submenujugadores.h
+
+1703791923 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\submenudeportes.h
+
+1703791923 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\submenuconfiguracion.h
+
+1703791923 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\submenuequipos.h
+
+1703787738 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\submenutiposdedeporte.h
+
+1703791923 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\reportes.h
+
+1702935763 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1703125779 c:\users\joaco\onedrive\escritorio\facultad\2ndo\laboratorio 2\ejercicios practica clases\respaldo\clasepunto.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	<windows.h>
+	<ctime>
+

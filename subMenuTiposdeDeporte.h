@@ -8,7 +8,7 @@ bool modificarTipodeDeporteNivel();
 bool eliminarTipodeDeporte();
 
 void subMenuTiposdeDeporte() {
-    int opc;
+   /* int opc;
     while(true){
         system("cls");
         cout<<"MENU EQUIPOS"<<endl;
@@ -47,6 +47,93 @@ void subMenuTiposdeDeporte() {
     cout<<endl;
     system("pause");
     return ;
+}*/
+
+rlutil::hidecursor();
+        rlutil::setBackgroundColor(rlutil::COLOR::BLACK);
+        rlutil::cls();
+        int y=0;
+     while(true){
+        int i;
+        Punto obj(26,8, cMAGENTA_CLARO);
+        for(i=26;i<61;i++){
+            obj.Mostrar();
+            obj.setX(i);
+            }
+        for(i=8;i<17;i++){
+            obj.Mostrar();
+            obj.setY(i);
+        }
+        for(i=60;i>25;i--){
+            obj.setX(i);
+            obj.Mostrar();
+        }
+        for(i=16;i>7;i--){
+            obj.Mostrar();
+            obj.setY(i);
+        }
+
+
+        rlutil::setColor(rlutil::COLOR::LIGHTCYAN);
+        showItem("      --MENU EQUIPOS--     ", 30, 9, false);
+        showItem("       AGREGAR EQUIPO      ", 30, 10, y==0);
+        showItem("    LISTAR EQUIPO POR ID   ", 30, 11, y==1);
+        showItem("  LISTAR TODOS LOS EQUIPOS ", 30, 12, y==2);
+        showItem("     MODIFICAR NOMBRE      ", 30, 13, y==3);
+        showItem("     ELIMINAR REGISTRO     ", 30, 14, y==4);
+        showItem("  VOLVER AL MENU PRINCIPAL ", 30, 15, y==5);
+
+
+    switch(rlutil::getkey()){
+        case 14: //UP
+            rlutil::locate(28,10+y);
+            cout<<" "<<endl;
+            y--;
+            if(y<0){
+                y=5;
+            }
+            break;
+        case 15: //DOWN
+            rlutil::locate(28,10+y);
+            cout<<" "<<endl;
+            y++;
+            if(y>5){
+                y=0;
+            }
+            break;
+        case 1: //ENTER
+            switch(y){
+            case 0: system("cls");
+                    if(agregarRegistroTipodeDeporte()){
+                cout<<"REGISTRO AGREGADO"<<endl;
+                } else {cout<<"NO SE HA PODIDO AGREGAR EL REGISTRO"<<endl;
+                } pauseCls();
+                break;
+            case 1: system("cls");
+                    if(!listarTipodeDeporteSegunID()){cout<<"NO HAY REGISTRO CON ESE ID"<<endl;}
+                    pauseCls();
+                break;
+            case 2: system("cls");
+                    listarTiposdeDeporte();
+                    pauseCls();
+                break;
+            case 3: system("cls");
+                    if(modificarTipodeDeporteNivel()){cout<<"SE HA MODIFICADO EL NIVEL"<<endl;}else{cout<<"NO SE HA PODIDO MODIFICAR"<<endl;}
+                    pauseCls();
+                break;
+            case 4: system("cls");
+                    eliminarTipodeDeporte();
+                    pauseCls();
+                break;
+            case 5: system("cls");
+                    return ;
+                break;
+            }
+            break;
+        default:
+            break;
+        }
+}
 }
 
 bool agregarRegistroTipodeDeporte(){

@@ -12,52 +12,102 @@ void restaurarTiposdeDeporte();
 void establecerDatosInicio();
 
 void subMenuConfiguracion(){
-      int opc;
-    while(true){
-        system("cls");
-        cout<<"MENU CONFIGURACION"<<endl;
-        cout<<"-----------------------------"<<endl;
-        cout<<"1) COPIA DE SEGURIDAD DEL ARCHIVO JUGADORES"<<endl;
-        cout<<"2) COPIA DE SEGURIDAD DEL ARCHIVO DEPORTES"<<endl;
-        cout<<"3) COPIA DE SEGURIDAD DEL ARCHIVO EQUIPOS"<<endl;
-        cout<<"4) COPIA DE SEGURIDAD DEL ARCHIVO TIPOS DE DEPORTE"<<endl;
-        cout<<"5) RESTAURAR JUGADORES"<<endl;
-        cout<<"6) RESTAURAR DEPORTES"<<endl;
-        cout<<"7) RESTAURAR EQUIPOS"<<endl;
-        cout<<"8) RESTAURAR TIPOS DE DEPORTE"<<endl;
-        cout<<"9) ESTABLECER DATOS DE INICIO"<<endl;
-        cout<<"-----------------------------"<<endl;
-        cout<<"0) VOLVER AL MENU PRINCIPAL"<<endl;
-        cout<<"OPCION: "<<endl;
-        cin>>opc;
-        system("cls");
-        switch(opc){
-            case 1: copiaSeguridadJugadores();
-                break;
-            case 2: copiaSeguridadDeportes();
-                break;
-            case 3: copiaSeguridadEquipos();
-                break;
-            case 4: copiaSeguridadTiposdeDeporte();
-                break;
-            case 5: restaurarJugadores();
-                break;
-            case 6: restaurarDeportes();
-                break;
-            case 7: restaurarEquipos();
-                break;
-            case 8: restaurarTiposdeDeporte();
-                break;
-            case 9: establecerDatosInicio();
-                break;
-            case 0: return ;
-                break;
-            default: cout<<"OPCION INCORRECTA"<<endl;
-                break;
+        rlutil::hidecursor();
+        rlutil::setBackgroundColor(rlutil::COLOR::BLACK);
+        rlutil::cls();
+        int y=0;
+     while(true){
+        int i;
+        Punto obj(26,8, cMAGENTA_CLARO);
+        for(i=26;i<77;i++){
+            obj.Mostrar();
+            obj.setX(i);
+            }
+        for(i=8;i<21;i++){
+            obj.Mostrar();
+            obj.setY(i);
         }
-        system("pause");
+        for(i=76;i>25;i--){
+            obj.setX(i);
+            obj.Mostrar();
+        }
+        for(i=20;i>7;i--){
+            obj.Mostrar();
+            obj.setY(i);
+        }
+
+        rlutil::setColor(rlutil::COLOR::LIGHTCYAN);
+        showItem("          --MENU CONFIGURACION--           ", 30, 9, false);
+        showItem("    COPIA DE SEGURIDAD ARCHIVO JUGADORES   ", 30, 10, y==0);
+        showItem("    COPIA DE SEGURIDAD ARCHIVO DEPORTES    ", 30, 11, y==1);
+        showItem("    COPIA DE SEGURIDAD ARCHIVO EQUIPOS     ", 30, 12, y==2);
+        showItem("COPIA DE SEGURIDAD ARCHIVO TIPOS DE DEPORTE", 30, 13, y==3);
+        showItem("            RESTAURAR JUGADORES            ", 30, 14, y==4);
+        showItem("            RESTAURAR DEPORTES             ", 30, 15, y==5);
+        showItem("            RESTAURAR EQUIPOS              ", 30, 16, y==6);
+        showItem("         RESTAURAR TIPOS DE DEPORTE        ", 30, 17, y==7);
+        showItem("         ESTABLECER DATOS DE INICIO        ", 30, 18, y==8);
+        showItem("          VOLVER AL MENU PRINCIPAL         ", 30, 19, y==9);
+
+
+        switch(rlutil::getkey()){
+            case 14: //UP
+                rlutil::locate(28,10+y);
+                cout<<" "<<endl;
+                y--;
+                if(y<0){
+                    y=0;
+                }
+                break;
+            case 15: //DOWN
+                rlutil::locate(28,10+y);
+                cout<<" "<<endl;
+                y++;
+                if(y>9){
+                    y=9;
+                }
+                break;
+            case 1: //ENTER
+                switch(y){
+                case 0: system("cls");
+                    copiaSeguridadJugadores();
+                    pauseCls();
+                    break;
+                case 1: system("cls");
+                    copiaSeguridadDeportes();
+                    pauseCls();
+                    break;
+                case 2: system("cls");
+                    copiaSeguridadEquipos();
+                    pauseCls();
+                    break;
+                case 3: copiaSeguridadTiposdeDeporte();
+                    break;
+                case 4: restaurarJugadores();
+                    break;
+                case 5: restaurarDeportes();
+                    break;
+                case 6: restaurarEquipos();
+                    break;
+                case 7: system("cls");
+                    restaurarTiposdeDeporte();
+                    pauseCls();
+                    break;
+                case 8: system("cls");
+                    establecerDatosInicio();
+                    pauseCls();
+                    break;
+                case 9: system("cls");
+                        return ;
+                    break;
+                default: cout<<"OPCION INCORRECTA"<<endl;
+                    break;
+                }
+        }
     }
 }
+
+
 void copiaSeguridadJugadores(){
     FILE *p=fopen("Jugadores.bkp","wb");
     fclose(p);
